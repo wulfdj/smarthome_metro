@@ -1,0 +1,6 @@
+{
+  "short_name": "SHL",
+  "name": "SmartHome Light",
+  "display": "standalone",
+  "orientation": "any"
+}

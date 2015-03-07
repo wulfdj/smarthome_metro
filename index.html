@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon/comet_16x16_000000.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="icon/comet_webapp_icon_114.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/comet_webapp_icon_114.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/comet_webapp_icon_144.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/comet_webapp_icon_144.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes" /> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href="css/metro-bootstrap.css" rel="stylesheet">
+    <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/iconFont.css" rel="stylesheet">
+	<link href="css/clock.css" rel="stylesheet"></link>
+    <link href="css/smarthome-metro.css" rel="stylesheet"></link>
+	<link href="css/jquery.nouislider.min.css" rel="stylesheet"></link>
+	
+    <!-- Load JavaScript Libraries -->
+    <script src="js/jquery/jquery.min.js"></script>
+
+    <!-- Local JavaScript -->
+	<script src="js/cometvisu-client.js"></script>
+	<script src="js/jquery.nouislider.min.js"></script>
+    <title>SmartHome Metro</title>
+</head>
+<body class="metro">
+    <div class="tile-area tile-area-dark">
+        <h1 class="tile-area-title fg-white">SmartHome Metro</h1>
+        <div class="tile-group four">
+           <a class="tile double bg-black glossy" data-click="transform">
+                <div class="tile-content">
+                    <div class="text-right padding10 ntp">
+                        <h1 class="fg-white no-margin" id="weekday"></h1>
+						<h2 class="fg-white no-margin" id="monthname"></h2>
+                        <p class="fg-white" id="weekdayname"></p>
+                    </div>
+                </div>
+                <div class="brand">
+                    <div class="label"><h3 class="no-margin fg-white"><span class="icon-calendar"></span></h3></div>
+                </div>
+            </a>
+
+           	<div class="tile bg-black glossy" data-click="transform">
+				<div style="height: 50%; border-bottom:1px solid #616156;">
+					<div class="text-right padding5">
+						<h2 class="fg-white no-margin"><span data-value="Weather_Temperature" data-type="number" data-format="&deg;">20.4</span></h2>
+						<p class="fg-white">Temperatur</p>
+					</div>
+				</div>
+				<div style="height:50%;">
+					<div class="text-right padding5">
+						<h2 class="fg-white no-margin"><span data-value="Weather_Humidity" data-format="%" data-type="number">50.6</span></h2>
+						<p class="fg-white">Feuchtigkeit</p>
+					</div>
+				</div>
+            </div> 
+			
+			<div class="tile bg-black glossy" data-click="transform">
+				<div style="height:50%;">
+					<div class="text-right padding5">
+						<h2 class="fg-white no-margin"><span data-value="Wind_Speed" data-format="m/s" data-type="number">50.6</span></h2>
+						<p class="fg-white">Wind</p>
+					</div>
+				</div>
+				<div style="height:50%;">
+				</div>
+            </div> 
+		
+			
+
+			<div class="tile triple triple-vertical bg-black">
+				<div class="tile-content glossy">
+                    <div id="clock" style="width:100%; height:100%;">
+                        <span id="e0">&nbsp;</span>
+                        <span id="e1">&nbsp;</span>
+                        <span id="e2">&nbsp;</span>
+                        <span id="e3">&nbsp;</span>
+                     	<div id="letters"></div>
+                    </div>?
+                </div>
+			</div> <!-- end tile -->
+        </div> <!-- End group -->
+		<div class="tile-group double">
+			<div class="tile-group-title">Lichter</div>
+			<div class="tile double bg-black glossy">
+				<div style="width:85%;float:left;border-right:1px solid #616156;height:100%;display: table-cell;vertical-align: middle;padding-left:14px;padding-right:14px;"><div class="slider" data-value="kitchen_dimmer" style="padding-top:40px;padding-bottom:10px;padding-left:5px;padding-right:5px;width:100%;height:10px;" ></div></div>
+				<div class="clickable" style="font-size:26px;width:15%;float:right;height:100%;text-align:center;" data-trigger="kitchen_dimmer" value="100"><span data-icon="kitchen_dimmer" style="color:white;padding-bottom:40px;padding-top:30px;" class="icon-lamp-2"/></div>
+				<div class="text-right padding10 ntp">
+					<h2 class="fg-white no-margin"><span data-value="kitchen_dimmer" data-format="" data-type="number">50.6</span></h2>
+				</div>
+				<div class="tile-status">
+					<span class="name">Esszimmer</span>
+				</div>
+			</div>
+			
+			
+			<div class="tile double bg-black glossy">
+				<div style="width:85%;float:left;border-right:1px solid #616156;height:100%;display: table-cell;vertical-align: middle;padding-left:14px;padding-right:14px;"><div class="slider" data-value="hue_all" style="padding-top:40px;padding-bottom:10px;padding-left:5px;padding-right:5px;width:100%;height:10px;" ></div></div>
+				<div class="clickable" style="font-size:26px;width:15%;float:right;height:100%;text-align:center;" data-trigger="hue_all" value="100"><span data-icon="hue_all" style="color:white;padding-bottom:40px;padding-top:30px;" class="icon-lamp-2"/></div>
+				<div class="text-right padding10 ntp">
+					<h2 class="fg-white no-margin"><span data-value="hue_all" data-format="" data-type="number">50.6</span></h2>
+				</div>
+				<div class="tile-status">
+					<span class="name">TV-Wand</span>
+				</div>
+			</div>
+			<div class="tile double bg-black glossy">
+				<div style="width:85%;float:left;border-right:1px solid #616156;height:100%;display: table-cell;vertical-align: middle;padding-left:14px;padding-right:14px;"><div class="slider" data-value="hue_all" style="padding-top:40px;padding-bottom:10px;padding-left:5px;padding-right:5px;width:100%;height:10px;" ></div></div>
+				<div class="clickable" style="font-size:26px;width:15%;float:right;height:100%;text-align:center;" data-trigger="wz_eg" value="100"><span data-icon="wz_eg" style="color:white;padding-bottom:40px;padding-top:30px;" class="icon-lamp-2"/></div>
+				<div class="text-right padding10 ntp">
+					<h2 class="fg-white no-margin"><span data-value="wz_dimmer" data-format="" data-type="number">50.6</span></h2>
+				</div>
+				<div class="tile-status">
+					<span class="name">Wohnzimmer</span>
+				</div>
+			</div>
+		</div>
+ 
+        <div class="tile-group double">
+            <div class="tile-group-title">Rollos</div>
+            <div class="tile double bg-black glossy" >
+				<div class="clickable" data-trigger="jalousie_eg" style="width: 50%; float:left; text-align:center; border-right:1px solid #616156;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;" data-click="transform" value="UP">
+					<span class="icon-arrow-up-2" style="color:white;">
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg" style="width: 50%; float:right; text-align:center;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;"  value="DOWN" data-click="transform" >
+					<span class="icon-arrow-down-2"/>
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg" style="clear:both;width: 100%; text-align:center;border-bottom:1px solid #616156;"  value="STOP" data-click="transform">
+					<span class="icon-stop" style="margin-bottom:10px; margin-top:10px;"/>
+				</div>
+                <div class="brand">
+                    <div class="label">EG Alle</div>
+                </div>
+            </div>
+            <div class="tile bg-black glossy" >
+				<div class="clickable" data-trigger="jalousie_eg1" style="width: 50%; float:left; text-align:center; border-right:1px solid #616156;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;" data-click="transform" value="UP">
+					<span class="icon-arrow-up-2">
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg1" style="width: 50%; float:right; text-align:center;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;"  value="DOWN" data-click="transform" >
+					<span class="icon-arrow-down-2"/>
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg1" style="clear:both;width: 100%; text-align:center;border-bottom:1px solid #616156;"  value="STOP" data-click="transform">
+					<span class="icon-stop" style="margin-bottom:10px; margin-top:10px;"/>
+				</div>
+                <div class="brand">
+                    <div class="label">WZ S&uuml;d Rechts</div>
+                </div>
+		    </div>
+            <div class="tile bg-black glossy" >
+				<div class="clickable" data-trigger="jalousie_eg2" style="width: 50%; float:left; text-align:center; border-right:1px solid #616156;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;" data-click="transform" value="UP">
+					<span class="icon-arrow-up-2">
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg2" style="width: 50%; float:right; text-align:center;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;"  value="DOWN" data-click="transform" >
+					<span class="icon-arrow-down-2"/>
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg2" style="clear:both;width: 100%; text-align:center;border-bottom:1px solid #616156;"  value="STOP" data-click="transform">
+					<span class="icon-stop" style="margin-bottom:10px; margin-top:10px;"/>
+				</div>
+                <div class="brand">
+                    <div class="label">WZ S&uuml;d Links</div>
+                </div>
+		    </div>
+			<div class="tile bg-black glossy" >
+				<div class="clickable" data-trigger="jalousie_eg3" style="width: 50%; float:left; text-align:center; border-right:1px solid #616156;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;" data-click="transform" value="UP">
+					<span class="icon-arrow-up-2">
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg3" style="width: 50%; float:right; text-align:center;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;"  value="DOWN" data-click="transform" >
+					<span class="icon-arrow-down-2"/>
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg3" style="clear:both;width: 100%; text-align:center;border-bottom:1px solid #616156;"  value="STOP" data-click="transform">
+					<span class="icon-stop" style="margin-bottom:10px; margin-top:10px;"/>
+				</div>
+                <div class="brand">
+                    <div class="label">WZ Ost Rechts</div>
+                </div>
+		    </div>
+			<div class="tile bg-black glossy" >
+				<div class="clickable" data-trigger="jalousie_eg4" style="width: 50%; float:left; text-align:center; border-right:1px solid #616156;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;" data-click="transform" value="UP">
+					<span class="icon-arrow-up-2">
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg4" style="width: 50%; float:right; text-align:center;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;"  value="DOWN" data-click="transform" >
+					<span class="icon-arrow-down-2"/>
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg4" style="clear:both;width: 100%; text-align:center;border-bottom:1px solid #616156;"  value="STOP" data-click="transform">
+					<span class="icon-stop" style="margin-bottom:10px; margin-top:10px;"/>
+				</div>
+                <div class="brand">
+                    <div class="label">WZ Ost Links</div>
+                </div>
+		    </div>
+			<div class="tile bg-black glossy" >
+				<div class="clickable" data-trigger="jalousie_eg5" style="width: 50%; float:left; text-align:center; border-right:1px solid #616156;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;" data-click="transform" value="UP">
+					<span class="icon-arrow-up-2">
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg5" style="width: 50%; float:right; text-align:center;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;"  value="DOWN" data-click="transform" >
+					<span class="icon-arrow-down-2"/>
+				</div>
+				<div class="clickable" data-trigger="jalousie_eg5" style="clear:both;width: 100%; text-align:center;border-bottom:1px solid #616156;"  value="STOP" data-click="transform">
+					<span class="icon-stop" style="margin-bottom:10px; margin-top:10px;"/>
+				</div>
+                <div class="brand">
+                    <div class="label">WZ Ost Oben</div>
+                </div>
+		    </div>
+			<div class="tile bg-black glossy" >
+				<div class="clickable" data-trigger="jalousie_buero" style="width: 50%; float:left; text-align:center; border-right:1px solid #616156;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;" data-click="transform" value="UP">
+					<span class="icon-arrow-up-2">
+				</div>
+				<div class="clickable" data-trigger="jalousie_buero" style="width: 50%; float:right; text-align:center;border-bottom:1px solid #616156;padding-top:10px;padding-bottom:10px;"  value="DOWN" data-click="transform" >
+					<span class="icon-arrow-down-2"/>
+				</div>
+				<div class="clickable" data-trigger="jalousie_buero" style="clear:both;width: 100%; text-align:center;border-bottom:1px solid #616156;"  value="STOP" data-click="transform">
+					<span class="icon-stop" style="margin-bottom:10px; margin-top:10px;"/>
+				</div>
+                <div class="brand">
+                    <div class="label">B&uuml;ro</div>
+                </div>
+		    </div>
+        </div> <!-- End group -->
+		<div class="tile-group double">
+            <div class="tile-group-title">Telefonliste</div>
+			<div class="tile triple quadro-vertical bg-black glossy" id="phonelist">
+			</div>
+      </div>
+        </div>
+</div>
+<script src="js/clock.js"></script>
+<script src="js/smarthome_metro.js"></script>
+</body>
+</html>
